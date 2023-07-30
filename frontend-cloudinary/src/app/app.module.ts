@@ -7,7 +7,9 @@ import { ListComponent } from './image/list/list.component';
 import { NewComponent } from './image/new/new.component';
 import { DetailsComponent } from './image/details/details.component';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,11 @@ import {HttpClientModule} from '@angular/common/http'
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   entryComponents:[DetailsComponent],
   providers: [],
