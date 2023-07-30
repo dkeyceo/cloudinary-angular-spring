@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './image/list/list.component';
 import { NewComponent } from './image/new/new.component';
 import { DetailsComponent } from './image/details/details.component';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { DetailsComponent } from './image/details/details.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   entryComponents:[DetailsComponent],
   providers: [],
