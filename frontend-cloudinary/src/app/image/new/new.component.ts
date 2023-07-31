@@ -39,7 +39,7 @@ export class NewComponent implements OnInit {
         this.router.navigate(['/']);
       },
       err => {
-        alert(err.error.mensaje);
+        alert(err.error.message);
         this.spinner.hide();
         this.reset();
       }

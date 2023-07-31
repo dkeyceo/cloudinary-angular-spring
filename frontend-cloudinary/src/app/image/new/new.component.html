@@ -2,9 +2,11 @@
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 
+<!-- <mat-spinner color="primary"></mat-spinner> -->
+
 <form (ngSubmit)="onUpload()" novalidate enctype="multipart/form-data">
   <div class="custom-file">
-      <input type="file" class="custom-file-input" id="imagen" #imagenInputFile
+      <input type="file" class="custom-file-input" id="imagen" #imageInputFile
       (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">
       <label class="custom-file-label" for="imagen">Choose image</label>
   </div>
