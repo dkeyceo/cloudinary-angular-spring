@@ -15,9 +15,10 @@ export class NewComponent implements OnInit {
   image: File;
   imageMin: File;
 
+  loading: boolean;
+
   constructor(private imageService: ImageService,
-    private router: Router,
-    private spinner: NgxSpinnerService) { }
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,15 +33,15 @@ export class NewComponent implements OnInit {
   }
 
   onUpload(): void {
-    this.spinner.show();
+    this.loading = true;
     this.imageService.upload(this.image).subscribe(
       data => {
-        this.spinner.hide();
+        this.loading=false;
         this.router.navigate(['/']);
       },
       err => {
         alert(err.error.message);
-        this.spinner.hide();
+        this.loading=false;
         this.reset();
       }
     );

@@ -11,8 +11,9 @@ import { ImageService } from 'src/app/services/image.service';
 export class ListComponent implements OnInit {
 
   images: Image[] = [];
-  constructor(private imageService: ImageService,
-    private spinner: NgxSpinnerService) { }
+  loading: boolean;
+
+  constructor(private imageService: ImageService) { }
 
   ngOnInit(): void {
     this.fillGalery();
@@ -27,14 +28,14 @@ export class ListComponent implements OnInit {
   }
 
   delete(id: number){
-    this.spinner.show();
+    this.loading=true;
     this.imageService.delete(id).subscribe(
       data => {
-        this.spinner.hide();
+        this.loading=false;
         this.fillGalery();
       },
       err => {
-        this.spinner.hide();
+        this.loading=false;
         console.log(err);
       }
     )
