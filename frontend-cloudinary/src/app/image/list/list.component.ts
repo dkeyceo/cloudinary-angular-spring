@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NgxSpinnerService } from 'ngx-spinner';
+import { MatDialog } from '@angular/material/dialog';
 import { Image } from 'src/app/models/image';
 import { ImageService } from 'src/app/services/image.service';
+import { DetailsComponent } from '../details/details.component';
 
 @Component({
   selector: 'app-list',
@@ -13,7 +14,9 @@ export class ListComponent implements OnInit {
   images: Image[] = [];
   loading: boolean;
 
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService,
+    private matDialog: MatDialog
+    ) { }
 
   ngOnInit(): void {
     this.fillGalery();
@@ -41,8 +44,8 @@ export class ListComponent implements OnInit {
     )
   }
 
-  showModal(i: number){
-    alert('showing modal...')
+  showDetails(){
+    this.matDialog.open(DetailsComponent)
   }
 
 }
